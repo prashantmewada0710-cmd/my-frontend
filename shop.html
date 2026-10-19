@@ -1,0 +1,180 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore career paths, Indian government exams, private-sector roles, eligibility guidance and job-preparation resources.">
+  <title>Career Compass India | Career Guidance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Career Compass India home">
+        <span class="brand-mark">CC</span>
+        <span class="brand-copy"><strong>Career Compass</strong><small>INDIA · CAREER GUIDE</small></span>
+      </a>
+
+      <button class="new-chat-button" id="newChatBtn"><span>＋</span> New conversation</button>
+
+      <p class="nav-label">WORKSPACE</p>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="chat"><span class="nav-icon">⌂</span> Career assistant</button>
+        <button class="nav-item" data-view="explore"><span class="nav-icon">⌕</span> Explore careers</button>
+        <button class="nav-item" data-view="quiz"><span class="nav-icon">✳</span> Career interest quiz</button>
+        <button class="nav-item" data-view="saved"><span class="nav-icon">♡</span> Saved careers <span class="saved-count" id="savedCount">0</span></button>
+        <button class="nav-item" data-view="resources"><span class="nav-icon">↗</span> Official resources</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <span class="help-icon">✦</span>
+          <strong>Your next step starts here.</strong>
+          <p>Explore options, compare paths and make informed decisions.</p>
+          <button id="sidebarQuizBtn">Take career quiz <span>→</span></button>
+        </div>
+        <div class="sidebar-footer"><span class="status-dot"></span> Career guidance workspace <span class="version">v1.0</span></div>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenuBtn" aria-label="Open navigation">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumbCurrent">Career assistant</strong></div>
+        <div class="topbar-right">
+          <span class="top-status"><span class="status-dot"></span> Guidance mode</span>
+          <div class="avatar">CC</div>
+        </div>
+      </header>
+
+      <section class="view active-view" id="chatView">
+        <div class="welcome-block">
+          <div class="eyebrow"><span class="sparkle">✦</span> YOUR CAREER JOURNEY, CLARIFIED</div>
+          <h1>Build a career that<br><span>fits your future.</span></h1>
+          <p class="welcome-subtitle">Explore career paths across India, understand eligibility, and discover your next step — one question at a time.</p>
+          <div class="welcome-tags">
+            <span>🇮🇳 India-focused</span><span>✓ Student-friendly</span><span>↗ Action-oriented</span>
+          </div>
+        </div>
+
+        <div class="quick-grid" aria-label="Quick actions">
+          <button class="quick-card" data-prompt="I have completed class 10. What career options can I explore?">
+            <span class="quick-icon lavender">▤</span><span><strong>After Class 10</strong><small>Courses, ITI, diploma & more</small></span><span class="quick-arrow">↗</span>
+          </button>
+          <button class="quick-card" data-prompt="I have completed class 12. Help me choose a career path.">
+            <span class="quick-icon mint">⌘</span><span><strong>After Class 12</strong><small>Degree, diploma & entrance paths</small></span><span class="quick-arrow">↗</span>
+          </button>
+          <button class="quick-card" data-prompt="Show me Indian government job options and official exam websites.">
+            <span class="quick-icon peach">▥</span><span><strong>Government Jobs</strong><small>Exams, eligibility & official links</small></span><span class="quick-arrow">↗</span>
+          </button>
+          <button class="quick-card" data-prompt="What private-sector career options are available in India?">
+            <span class="quick-icon blue">↗</span><span><strong>Private Careers</strong><small>Industries, roles & skills</small></span><span class="quick-arrow">↗</span>
+          </button>
+        </div>
+
+        <section class="chat-card">
+          <div class="chat-heading">
+            <div class="assistant-avatar">✦</div>
+            <div><strong>Career Compass Assistant</strong><small><span class="status-dot"></span> Online · Predefined guidance</small></div>
+            <span class="chat-heading-note">ENGLISH</span>
+          </div>
+
+          <div class="chat-messages" id="chatMessages" aria-live="polite">
+            <div class="message assistant-message">
+              <div class="message-avatar">✦</div>
+              <div class="message-content">
+                <div class="message-name">Career Assistant <span>JUST NOW</span></div>
+                <div class="bubble">Hi there! 👋 I can help you explore careers in India, compare government and private-sector paths, understand typical eligibility, and find official recruitment websites.<br><br>To get started, tell me your current qualification or choose a topic below.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="suggestion-row" id="suggestionRow">
+            <button data-prompt="I am in class 10">Class 10</button>
+            <button data-prompt="I have passed class 12">Class 12</button>
+            <button data-prompt="I am a college student">College student</button>
+            <button data-prompt="I am looking for a job">Job seeker</button>
+          </div>
+
+          <form class="chat-input-area" id="chatForm">
+            <label class="sr-only" for="chatInput">Ask a career question</label>
+            <textarea id="chatInput" rows="1" placeholder="Ask about careers, exams, courses or eligibility..." maxlength="700"></textarea>
+            <div class="input-bottom">
+              <span><span class="input-hint-icon">↵</span> Enter to send · Shift + Enter for a new line</span>
+              <button class="send-button" type="submit" aria-label="Send message">↑</button>
+            </div>
+          </form>
+          <p class="disclaimer">Career information is general guidance. Always verify eligibility and deadlines in official notifications.</p>
+        </section>
+      </section>
+
+      <section class="view" id="exploreView">
+        <div class="page-heading">
+          <div class="eyebrow">CAREER DIRECTORY</div>
+          <h1>Explore career paths</h1>
+          <p>Browse a starter directory of career paths across government and private sectors in India.</p>
+        </div>
+        <div class="search-tools">
+          <div class="search-box"><span>⌕</span><input id="careerSearch" type="search" placeholder="Search careers, exams, skills or sectors..."></div>
+          <select id="sectorFilter" aria-label="Filter by sector">
+            <option value="all">All sectors</option>
+            <option value="government">Government</option>
+            <option value="private">Private sector</option>
+            <option value="education">Education & training</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="business">Business & finance</option>
+            <option value="technology">Technology</option>
+            <option value="defence">Defence & uniformed services</option>
+            <option value="skilled">Skilled trades</option>
+          </select>
+        </div>
+        <div class="results-line"><span id="resultsCount">Career options</span><span>Starter directory · Not a live vacancy list</span></div>
+        <div class="career-grid" id="careerGrid"></div>
+        <div class="empty-state hidden" id="careerEmpty"><span>⌕</span><h3>No matching careers</h3><p>Try another keyword or choose a different sector.</p></div>
+      </section>
+
+      <section class="view" id="quizView">
+        <div class="page-heading">
+          <div class="eyebrow">SELF-DISCOVERY</div>
+          <h1>Find your direction</h1>
+          <p>Answer a few quick questions to see career areas that may fit your interests. This is a reflection tool, not a formal assessment.</p>
+        </div>
+        <div class="quiz-layout">
+          <div class="quiz-card" id="quizCard">
+            <div class="quiz-progress"><span id="quizStepLabel">QUESTION 1 OF 4</span><span id="quizPercent">25%</span></div>
+            <div class="progress-track"><span id="quizProgress"></span></div>
+            <div id="quizContent"></div>
+            <div class="quiz-actions"><button class="button-secondary" id="quizBack" disabled>← Back</button><button class="button-primary" id="quizNext">Continue →</button></div>
+          </div>
+          <aside class="quiz-aside">
+            <div class="aside-icon">✳</div><h3>There is no single right answer.</h3>
+            <p>Your interests, circumstances, learning preferences and goals all matter. Use your results as a starting point for further research.</p>
+            <div class="aside-stat"><strong>4</strong><span>short questions</span></div>
+            <div class="aside-stat"><strong>~2 min</strong><span>to complete</span></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="savedView">
+        <div class="page-heading"><div class="eyebrow">YOUR SHORTLIST</div><h1>Saved careers</h1><p>Keep interesting options together while you compare requirements and next steps.</p></div>
+        <div class="career-grid" id="savedGrid"></div>
+        <div class="empty-state" id="savedEmpty"><span>♡</span><h3>Your shortlist starts here</h3><p>Save careers from Explore Careers to compare them later.</p><button class="button-primary" data-go="explore">Explore careers →</button></div>
+      </section>
+
+      <section class="view" id="resourcesView">
+        <div class="page-heading"><div class="eyebrow">TRUSTED STARTING POINTS</div><h1>Official resources</h1><p>Use official portals to verify current notices, eligibility, application dates and recruitment updates.</p></div>
+        <div class="notice-banner"><span>ⓘ</span><p><strong>Always verify before applying.</strong> This page links to official or primary public resources. It does not fetch live vacancies or guarantee that a recruitment drive is open.</p></div>
+        <div class="resource-grid" id="resourceGrid"></div>
+        <div class="resource-note"><strong>Recruitment safety tip</strong><p>Check the exact notification on the recruiting organisation's official website. Be cautious of agents, unofficial payment requests and messages promising guaranteed selection.</p></div>
+      </section>
+
+      <footer class="main-footer"><span>© 2026 Career Compass India</span><span>Built for clearer career decisions <span class="footer-heart">♥</span></span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="shop.js"></script>
+</body>
+</html>
